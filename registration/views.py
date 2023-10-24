@@ -4,16 +4,14 @@ from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.views.generic import CreateView, ListView
-from registration.forms import CustomRegistrationForm
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
+from django.urls import reverse_lazy
+
+class AuthLogoutView(LogoutView):
+    next_page = reverse_lazy('users:post')
 
 
-logout_view = LogoutView.as_view(next_page=reverse_lazy('/'))
-
-def custom_logout(request):
-    logout(request)
-    return render(request, 'post.html')
 class RegisterationView(CreateView):
     form_class = UserCreationForm
     success_url = '/users/'
