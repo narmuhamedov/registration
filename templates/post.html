@@ -8,8 +8,12 @@
 <h1>Ура вы зашли</h1>
 {% for i in object_list %}
 <h2>{{i.username}}</h2>
-<p>{{i.email}}</p>
+<p>{{ i.email }}</p>
 {% endfor %}
-<button><a href="/">Logout</a></button>
+<form method="post" action="{% url 'users:logout' %}">
+  {% csrf_token %}
+  <button type="submit">Logout</button>
+</form>
+
 </body>
 </html>

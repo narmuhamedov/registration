@@ -7,13 +7,13 @@ from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
-
+from . import forms
 class AuthLogoutView(LogoutView):
-    next_page = reverse_lazy('users:post')
+    next_page = reverse_lazy('users:home')
 
 
 class RegisterationView(CreateView):
-    form_class = UserCreationForm
+    form_class = forms.CustomUserForm
     success_url = '/users/'
     template_name = 'registration.html'
 
