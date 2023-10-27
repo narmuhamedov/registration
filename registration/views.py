@@ -5,8 +5,6 @@ from django.contrib.auth.views import LoginView, LogoutView
 from django.urls import reverse
 from django.views.generic import CreateView, ListView
 from django.urls import reverse_lazy
-from django.contrib.auth import logout
-from django.urls import reverse_lazy
 from . import forms
 
 
