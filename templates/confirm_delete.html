@@ -1,0 +1,15 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Confirm Delete</title>
+</head>
+<body>
+    <h1>Are you sure delete this task?</h1>
+    <form method="POST">
+        {% csrf_token %}
+        <button type="submit">Yes</button>
+        <button><a href="/todo_list/">No</a></button>
+    </form>
+</body>
+</html>

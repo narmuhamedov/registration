@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ToDo</title>
+</head>
+<body>
+<a href="/create_todo/">Add Task</a>
+    <ul>
+        {% for i in object_list %}
+        <li>
+            <h1>{{i.title}}</h1>
+            <p><em>{{i.description}}</em></p>
+            <a href="/todo_list/{{i.id}}/delete/">Delete Task</a>
+            <a href="/todo_list/{{i.id}}/update/">Edit Task</a>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

@@ -8,15 +8,19 @@ from django.urls import reverse_lazy
 from django.contrib.auth import logout
 from django.urls import reverse_lazy
 from . import forms
+
+
+# Logout
 class AuthLogoutView(LogoutView):
     next_page = reverse_lazy('users:home')
 
-
+#Registrations
 class RegisterationView(CreateView):
     form_class = forms.CustomUserForm
     success_url = '/users/'
     template_name = 'registration.html'
 
+#Login
 class AuthLoginView(LoginView):
     form_class = AuthenticationForm
     template_name = 'login.html'
@@ -24,12 +28,10 @@ class AuthLoginView(LoginView):
     def get_success_url(self):
         return reverse('users:post')
 
-
-
-
-
+#UserList
 class PostView(ListView):
-    queryset = User.objects.all()
+    queryset = User.objects.filter().order_by("-id")
     template_name = 'post.html'
+
     def get_queryset(self):
-        return User.objects.all()
+        return User.objects.filter().order_by("-id")
