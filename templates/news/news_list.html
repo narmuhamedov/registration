@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>News List</title>
+</head>
+<body>
+    <h1>Our News</h1>
+    <ul>
+        {% for i in object_list %}
+        <li>
+            <h2>{{i.post_name}}</h2>
+            <p>{{i.post_text}}</p>
+            <p>
+                <time>{{i.created_at}}</time>
+            </p>
+        </li>
+        {% endfor %}
+    </ul>
+    <a href="/create_news/">Add new post</a>
+</body>
+</html>
