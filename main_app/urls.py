@@ -8,6 +8,7 @@ urlpatterns = [
     path('', include('registration.urls')),
     path('', include('todo.urls')),
     path('', include('news.urls')),
+    path('', include('url_shorts.urls')),
 
 ]
 

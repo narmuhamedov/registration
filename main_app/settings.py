@@ -28,6 +28,8 @@ INSTALLED_APPS = [
     'registration',
     'todo',
     'news',
+    'rest_framework',
+    'url_shorts',
 ]
 
 MIDDLEWARE = [
@@ -65,8 +67,12 @@ WSGI_APPLICATION = 'main_app.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'django_lessons.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql_psycopg2',
+        'NAME': 'urls_db',
+        'PORT': 5432,
+        'HOST': 'localhost',
+        'USER': 'root',
+        'PASSWORD': '123456',
     }
 }
 
